@@ -160,48 +160,7 @@
       :user="user"
     />
   </div>
-  <div
-    class="modal fade"
-    id="deleteModal"
-    tabindex="-1"
-    aria-labelledby="deleteModalLabel"
-    aria-hidden="true"
-    data-bs-backdrop="false"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          Are you sure you want to delete this student?
-        </div>
-        <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
-            Close
-          </button>
-          <button
-            type="button"
-            class="btn btn-danger"
-            @click="deleteUser"
-            data-bs-dismiss="modal"
-          >
-            Confirm
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+  <deleteDriverModal @delete-confirmation="deleteUser" />
 </template>
 
 <style scoped>
@@ -401,6 +360,7 @@
 <script setup>
 import { ref, onMounted, computed } from "vue";
 import StudentModal from "./StudentModal.vue";
+import deleteDriverModal from "./deleteDriverModal.vue";
 import { Modal } from "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
